@@ -8,7 +8,7 @@
     "./code": "./src/code.tsx"
   },
   "scripts": {
-    "lint": "eslint . --write",
+    "lint": "eslint . --fix",
     "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
