@@ -6,7 +6,8 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "turbo run test"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
@@ -26,12 +27,12 @@
   ],
   "lint-staged": {
      "apps/**/*.{js,ts,jsx,tsx}": [
-      "yarn lint",
-      "yarn format"
+      "eslint --fix",
+      "prettier --write "
     ],
     "packages/ui/**/*.{js,ts,jsx,tsx}": [
-      "yarn lint",
-      "yarn format"
+      " eslint --fix",
+      "prettier --write "
     ]
   }
 }
