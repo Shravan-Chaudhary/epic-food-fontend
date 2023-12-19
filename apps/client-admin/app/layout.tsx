@@ -2,13 +2,13 @@ import "antd/dist/reset.css";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import AntdProvider from "./AntdProvider";
-import StyledComponentsRegistry from "./AntdRegistry";
+import AntdProvider from "../lib/providers/AntdProvider";
+import StyledComponentsRegistry from "../lib/providers/AntdRegistry";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Epic Food",
+  title: "Epic Food | Admin",
   description: "Food delivery for gamers",
 };
 
