@@ -3,6 +3,7 @@
   "globalDependencies": ["**/.env.*local"],
   "pipeline": {
     "build": {
+      "env": ["BACKEND_API_URL"],
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
@@ -11,6 +12,7 @@
       "dependsOn": ["^lint"]
     },
     "dev": {
+      "env": ["BACKEND_API_URL"],
       "cache": false,
       "persistent": true
     }
