@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { devtools } from "zustand/middleware";
 
 interface User {
   id: number;
@@ -14,8 +15,10 @@ interface AuthState {
   logout: () => void;
 }
 
-export const useAuthState = create<AuthState>()((set) => ({
-  user: null,
-  setUser: (user) => set({ user }),
-  logout: () => set({ user: null }),
-}));
+export const useAuthState = create<AuthState>()(
+  devtools((set) => ({
+    user: null,
+    setUser: (user) => set({ user }),
+    logout: () => set({ user: null }),
+  }))
+);

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { Credentials } from "../types";
 import { login, self } from "../http/api";
+import { useAuthState } from "../store";
 
 const loginUser = async (credentials: Credentials) => {
   const { data } = await login(credentials);
@@ -16,6 +17,7 @@ const getSelf = async () => {
 };
 
 const LoginForm = () => {
+  const { setUser } = useAuthState();
   const { data: selfData, refetch } = useQuery({
     queryKey: ["self"],
     queryFn: getSelf,
@@ -28,9 +30,8 @@ const LoginForm = () => {
     onSuccess: async () => {
       // get self
       refetch();
-      console.log("userData: ", selfData);
       //store data in state
-      console.log("Logged in successfully");
+      setUser(selfData);
     },
   });
 
